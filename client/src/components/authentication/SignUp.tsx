@@ -25,6 +25,7 @@ export default function SignUp({
         rounded-md shadow-lg  shadow-gray-400 bg-gray-900"
       >
         <Input
+          testId="signup-name-input-field"
           type="text"
           placeholder="Enter Full Name"
           label="Full Name*"
@@ -33,6 +34,7 @@ export default function SignUp({
           onChange={(e) => onChange(e.target.value, "name")}
         />
         <Input
+          testId="signup-email-input-field"
           type="text"
           placeholder="Enter Email"
           label="Email*"
@@ -41,6 +43,7 @@ export default function SignUp({
           onChange={(e) => onChange(e.target.value, "email")}
         />
         <Input
+          testId="signup-password-input-field"
           placeholder="Enter Password"
           label="Password*"
           type="password"
@@ -49,6 +52,7 @@ export default function SignUp({
           onChange={(e) => onChange(e?.target?.value, "password")}
         />
         <Button
+          testId="signup-button"
           title={"Register"}
           classNames="!w-full bg-green-500 p-2 !my-2 text-white font-semibold text-md"
           onClick={submitForm}
@@ -57,6 +61,7 @@ export default function SignUp({
       <div
         className="text-gray-200  text-md font-semibold underline m-2 cursor-pointer"
         onClick={changeFormType}
+        data-testid="signin-user-form"
       >
         Already have an account?
       </div>

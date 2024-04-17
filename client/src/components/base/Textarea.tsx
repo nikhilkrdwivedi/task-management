@@ -1,15 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { TbClipboardCopy } from "react-icons/tb";
 import ErrorText from "./ErrorText";
-// import ErrorText from "./ErrorText";
 
 function Textarea({
-  min,
-  max,
   label,
-  type,
   onChange,
   value,
   placeholder,
@@ -19,13 +12,12 @@ function Textarea({
   readOnly,
   error,
   errorClass,
+  testId,
 }: TextareaType) {
-  const [showPassword, setShowPassword] = useState(true);
   return (
     <div
-      className={`relative flex items-center justify-between w-full flex-wrap ${
-        isHide ? "hidden" : ""
-      }`}
+      className={`relative flex items-center justify-between w-full flex-wrap ${isHide ? "hidden" : ""
+        }`}
     >
       <label
         htmlFor="inputField"
@@ -37,9 +29,9 @@ function Textarea({
         </div>
 
         <textarea
-         rows={4}
+          data-testid={testId}
+          rows={4}
           readOnly={readOnly}
-      
           onChange={onChange}
           value={value}
           disabled={disabled}
@@ -52,26 +44,21 @@ function Textarea({
           text-sm shadow outline-none 
           focus:outline-none  w-full  
           text-gray-200 
-            bg-clip-padding
-            border border-solid border-gray-300 
-            transition
-            ease-in-out
-            rounded
-            m-0
-        focus:text-gray-300 focus:bg-gray-700 focus:border-gray-200 ${classNames} ${
-            type === "password" || type === "clipboard" ? " pr-10 " : ""
-          }`}
+          bg-clip-padding
+          border border-solid border-gray-300 
+          transition
+          ease-in-out
+          rounded
+          m-0
+        focus:text-gray-300 focus:bg-gray-700 focus:border-gray-200 ${classNames}`}
         />
-       
- 
+
+
       </label>
-      {/* <ErrorText error={error} classNames="py-1" /> */}
     </div>
   );
 }
 type TextareaType = {
-  min?: string | number;
-  max?: string | number;
   label?: string;
   type: string;
   value: string | number | readonly string[] | undefined;
@@ -83,6 +70,7 @@ type TextareaType = {
   readOnly?: boolean;
   error?: string;
   errorClass?: string;
+  testId?: string;
 };
 
 export default Textarea;

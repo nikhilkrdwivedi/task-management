@@ -44,6 +44,7 @@ export default function MyModal({ openModal, closeModal, headerTitle, body, foot
                                     <Dialog.Title
                                         as="h4"
                                         className="text-lg font-bold leading-6 text-gray-200"
+                                        data-testid="modal-title"
                                     >
                                         {headerTitle}
                                     </Dialog.Title>
