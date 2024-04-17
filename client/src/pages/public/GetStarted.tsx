@@ -58,11 +58,11 @@ export default function GetStarted() {
             });
             setUserContext(data?.user);
             setIsAuthenticated(true);
-            toast("Great news! You can use your services now 😃");
+            toast.success("Great news! You can use your services now 😃");
             navigate("/");
         } catch (error: any) {
             const errorMsg = error?.response?.data?.message || "Try again 🤠";
-            toast(errorMsg);
+            toast.error(errorMsg);
         }
     };
 
@@ -72,7 +72,7 @@ export default function GetStarted() {
                 onClick={() => {
                     navigate("/");
                 }}
-                classNames="!fixed top-0 left-0 m-4 md:m-12 bg-teal-400  h-[34px] w-[34px] text-gray-700"
+                classNames="!fixed top-0 left-0 m-4 md:m-12 bg-gray-700 h-[34px] w-[34px] text-gray-700"
                 Icon={IoReturnUpBackOutline}
                 IconSize={28}
             />

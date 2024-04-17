@@ -12,10 +12,10 @@ export default function SignUp({
 }: SignUpType) {
   return (
     <div className="flex flex-col justify-center items-center gap-4 py-8 px-4">
-      <div className="text-gray-600  text-2xl font-bold">
+      <div className="text-gray-200  text-2xl font-bold">
         Register Here
       </div>
-      <div className="text-gray-600 text-base text-center px-4 w-full md:w-2/3 lg:w-1/3">
+      <div className="text-gray-200 text-base text-center px-4 w-full md:w-2/3 lg:w-1/3">
         Registration: Where usernames become superheroes and passwords become
         secret agents.
       </div>
@@ -55,7 +55,7 @@ export default function SignUp({
         />
       </div>
       <div
-        className="text-gray-600  text-md font-semibold underline m-2 cursor-pointer"
+        className="text-gray-200  text-md font-semibold underline m-2 cursor-pointer"
         onClick={changeFormType}
       >
         Already have an account?

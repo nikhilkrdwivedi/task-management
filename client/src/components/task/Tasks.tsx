@@ -70,7 +70,7 @@ export default function Tasks() {
             setShowTaskFormModal(false)
         } catch (error: any) {
             const errorMsg = error?.response?.data?.message || "Try again 🤠";
-            toast(errorMsg);
+            toast.error(errorMsg);
         } finally {
             setQuery({ ...query, ...BASE_QUERY })
         }
@@ -83,11 +83,12 @@ export default function Tasks() {
             setShowTaskToggleModal(false)
         } catch (error: any) {
             const errorMsg = error?.response?.data?.message || "Try again 🤠";
-            toast(errorMsg);
+            toast.error(errorMsg);
         } finally {
             setQuery({ ...query, ...BASE_QUERY })
         }
     }
+
     const handleDeleteStatusUpdate = async () => {
         try {
             const { _id } = selectedTaskItem;
@@ -96,11 +97,12 @@ export default function Tasks() {
             setShowTaskDeleteModal(false)
         } catch (error: any) {
             const errorMsg = error?.response?.data?.message || "Try again 🤠";
-            toast(errorMsg);
+            toast.error(errorMsg);
         } finally {
             setQuery({ ...query, ...BASE_QUERY })
         }
     }
+
     const handleTaskFormModalAction = (selectedItem: any, status: boolean) => {
         try {
             setShowTaskFormModal(status);

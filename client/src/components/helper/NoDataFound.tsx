@@ -15,10 +15,10 @@ export default function NoDataFound({
           lottieClass="h-72 md:h-96"
           animationData={noDataFoundJson}
         />
-        <div className="text-center text-2xl font-bold text-gray-600 dark:text-gray-200 ">
+        <div className="text-center text-2xl font-bold text-gray-200 ">
           {description}
         </div>
-        <div className="text-center text-lg font-semibold text-gray-400 dark:text-gray-400 ">
+        <div className="text-center text-lg font-semibold text-gray-200 ">
           {subDescription}
         </div>
       </div>
