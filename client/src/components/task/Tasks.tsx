@@ -14,6 +14,7 @@ import Container from '../base/Container';
 import NoDataFound from '../helper/NoDataFound';
 import TaskStatusToggleModal from './TaskStatusToggleModal';
 import TaskDeleteModal from './TaskDeleteModal';
+import TaskFormModal from './TaskFormModal';
 
 export default function Tasks() {
     const [showTaskFormModal, setShowTaskFormModal] = useState<boolean>(false);
@@ -138,43 +139,33 @@ export default function Tasks() {
             [key]: value
         }))
     }
-    const getManageTaskBody = () => {
-        return (
 
-            <div className='flex justify-center items-center flex-col w-full py-2'>
-                <Input
-                    type="text"
-                    label="Title*"
-                    placeholder="Please add title here"
-                    value={selectedTaskItem?.title || ""}
-                    error={selectedTaskItemErrors?.title}
-                    onChange={(e) => { handleFormChange(e.target.value, 'title') }}
-                />
-                <Textarea
-                    type="Description*"
-                    label="Description*"
-                    placeholder='Please add description here'
-                    value={selectedTaskItem?.description || ""}
-                    error={selectedTaskItemErrors?.description}
-                    onChange={(e) => { handleFormChange(e.target.value, 'description') }}
-                />
-            </div>
-        )
-    }
-    const getManageTaskFooter = () => {
-        return (
-            <div className='flex justify-end items-center w-full gap-4'>
-                <Button title="Cancel" classNames='w-24 text-white text-sm font-bold px-2 py-1 gap-2 bg-gradient-to-t hover:bg-gradient-to-b from-red-400 to-red-600 shadow-md ' onClick={() => handleTaskFormModalAction({}, false)} />
-                <Button title="Save" classNames='w-24 text-white text-sm font-bold px-2 py-1 gap-2 bg-gradient-to-t hover:bg-gradient-to-b from-green-400 to-green-600 shadow-md ' onClick={() => validatedRequest()} />
-            </div>
-        )
-    }
     return (
         <>
             <Container className='h-full px-4 md:px-12 lg:px-42 bg-gray-900 overflow-auto'>
-                <TaskStatusToggleModal data={selectedTaskItem} title='Manage Task Status' showModal={showTaskToggleModal} hideModal={() => handleToggleStatusModal({}, false)} updateToggleStatus={handleToggleStatusUpdate} />
-                <TaskDeleteModal title='Delete Task' showModal={showTaskDeleteModal} hideModal={() => handleTaskDeleteModal({}, false)} deleteTask={handleDeleteStatusUpdate} />
-                <MyModal headerTitle='Manage Task' body={getManageTaskBody()} footer={getManageTaskFooter()} openModal={showTaskFormModal || false} closeModal={() => handleTaskFormModalAction({}, false)} />
+                <TaskStatusToggleModal 
+                data={selectedTaskItem} 
+                showModal={showTaskToggleModal} 
+                hideModal={() => handleToggleStatusModal({}, false)} 
+                updateToggleStatus={handleToggleStatusUpdate} 
+                />
+                <TaskDeleteModal 
+                showModal={showTaskDeleteModal} 
+                hideModal={() => handleTaskDeleteModal({}, false)} 
+                deleteTask={handleDeleteStatusUpdate} 
+                />
+                <TaskFormModal
+                    selectedTaskItemErrors={selectedTaskItemErrors}
+                    selectedTaskItem={selectedTaskItem}
+                    showModal={showTaskFormModal}
+                    hideModal={() => handleTaskFormModalAction({}, false)}
+                    handleFormChange={(value: string, key: string) => {
+                        handleFormChange(value, key)
+                    }
+                    } 
+                    openModal={showTaskFormModal || false} 
+                    saveClick={() => validatedRequest()} 
+                    />
                 <TaskHeader manageTaskFormModal={handleTaskFormModalAction} />
                 <TaskTabs handleTabChange={(status: string) => handleQueryChange(status, 'TAB')} />
                 <NoDataFound loading={loading} data={tasks.data} />

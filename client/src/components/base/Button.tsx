@@ -6,9 +6,11 @@ export default function Button({
     onClick,
     IconSize = 18,
     iconClass,
+    testId,
   }: ButtonTypes) {
     return (
       <button
+        data-testid={testId}
         onClick={onClick}
         className={`rounded-md  text-center flex items-center justify-evenly ${classNames}`}
       >
@@ -19,6 +21,7 @@ export default function Button({
   }
   
   type ButtonTypes = {
+    testId?: string;
     title?: string;
     Icon?: any;
     classNames?: string;

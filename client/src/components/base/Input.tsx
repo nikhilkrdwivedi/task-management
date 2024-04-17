@@ -19,13 +19,13 @@ function Input({
   readOnly,
   error,
   errorClass,
+  testId,
 }: InputType) {
   const [showPassword, setShowPassword] = useState(true);
   return (
     <div
-      className={`relative flex items-center justify-between w-full flex-wrap ${
-        isHide ? "hidden" : ""
-      }`}
+      className={`relative flex items-center justify-between w-full flex-wrap ${isHide ? "hidden" : ""
+        }`}
     >
       <label
         htmlFor="inputField"
@@ -37,6 +37,7 @@ function Input({
         </div>
 
         <input
+          data-testid={testId}
           min={min}
           max={max}
           readOnly={readOnly}
@@ -59,9 +60,8 @@ function Input({
             ease-in-out
             rounded
             m-0
-        focus:text-gray-300 focus:bg-gray-700 focus:border-gray-200 ${classNames} ${
-            type === "password" || type === "clipboard" ? " pr-10 " : ""
-          }`}
+        focus:text-gray-300 focus:bg-gray-700 focus:border-gray-200 ${classNames} ${type === "password" || type === "clipboard" ? " pr-10 " : ""
+            }`}
         />
         {type === "password" && (
           <span
@@ -108,6 +108,7 @@ type InputType = {
   readOnly?: boolean;
   error?: string;
   errorClass?: string;
+  testId?: string;
 };
 
 export default Input;

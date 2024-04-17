@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div className="flex z-10 justify-between items-center h-16  px-4 md:px-12 lg:px-42 py-4 md:py-4 gap-4 sticky -top-0.5 bottom-0.5 border-b border-gray-700  bg-gray-900">
-            <div className="text-md font-semibold text-white">Hi, {userContext?.name}</div>
+            <div data-testid="topheader-user-full-name" className="text-md font-semibold text-white">Hi, {userContext?.name}</div>
             <Button title="logout" Icon={RiLogoutCircleRLine} classNames='text-white font-semibold px-2 py-1 gap-1 bg-pink-500 hover:bg-pink-700' onClick={() => logoutUser()} />
 
             {/* <Button title="logout" /> */}

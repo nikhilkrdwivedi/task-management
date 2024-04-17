@@ -26,6 +26,7 @@ export default function SignIn({
         rounded-md shadow-lg shadow-gray-400"
       >
         <Input
+          testId="signin-email-input-field"
           type="text"
           placeholder="Enter Email"
           label="Email*"
@@ -34,6 +35,7 @@ export default function SignIn({
           onChange={(e: any) => onChange(e.target.value, "email")}
         />
         <Input
+          testId="signin-password-input-field"
           placeholder="Enter Password"
           label="Password*"
           type="password"
@@ -42,6 +44,7 @@ export default function SignIn({
           onChange={(e: any) => onChange(e.target.value, "password")}
         />
         <Button
+          testId="signin-button"
           title={"Sign In"}
           classNames="!w-full bg-green-500 p-2 text-white font-semibold text-md"
           onClick={submitForm}
@@ -50,6 +53,7 @@ export default function SignIn({
       <div
         className="text-gray-200 text-md font-semibold underline m-2 cursor-pointer"
         onClick={changeFormType}
+        data-testid="register-user-form"
       >
         Don&apos;t have an account?
       </div>
