@@ -13,10 +13,10 @@ export default function SignIn({
 }: SignInType) {
   return (
     <div className="flex flex-col justify-center items-center gap-4 py-8 px-4 ">
-      <div className="text-gray-600 text-2xl font-bold">
+      <div className="text-gray-200 text-2xl font-bold">
         Sign In Here
       </div>
-      <div className="text-gray-600 text-base text-center px-4 w-full md:w-2/3 lg:w-1/3">
+      <div className="text-gray-200 text-base text-center px-4 w-full md:w-2/3 lg:w-1/3">
         Sign In: Knock, knock. Who&apos;s there? Just your data, waiting to be
         signed in.
       </div>
@@ -48,7 +48,7 @@ export default function SignIn({
         />
       </div>
       <div
-        className="text-gray-600 text-md font-semibold underline m-2 cursor-pointer"
+        className="text-gray-200 text-md font-semibold underline m-2 cursor-pointer"
         onClick={changeFormType}
       >
         Don&apos;t have an account?
