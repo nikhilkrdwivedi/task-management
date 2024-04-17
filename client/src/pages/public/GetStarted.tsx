@@ -17,7 +17,7 @@ export default function GetStarted() {
     const navigate = useNavigate();
     const [renderSignInForm, setRenderSignInForm] = useState(true);
     const [form, setForm] = useState<any>({
-        email: "author@gmail.com",
+        email: "adminuser@tasks.com",
         password: "Password123.@",
     });
 
@@ -72,7 +72,7 @@ export default function GetStarted() {
                 onClick={() => {
                     navigate("/");
                 }}
-                classNames="!fixed top-0 left-0 m-4 md:m-12 bg-gray-700 h-[34px] w-[34px] text-gray-700"
+                classNames="!fixed top-0 left-0 m-4 md:m-12 bg-gray-700 h-[34px] w-[34px] text-gray-200"
                 Icon={IoReturnUpBackOutline}
                 IconSize={28}
             />
