@@ -1,5 +1,4 @@
 import { Switch } from '@headlessui/react'
-import { useState } from 'react'
 import { MdOutlineEditNote, MdDeleteForever } from 'react-icons/md'
 import { titleize } from 'underscore.string';
 

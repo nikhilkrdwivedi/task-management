@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, ReactNode, useState } from 'react'
+import { Fragment, ReactNode } from 'react'
 type ModalPropTypes =
     {
         openModal: boolean;
@@ -13,8 +13,6 @@ type ModalPropTypes =
 export default function MyModal({ openModal, closeModal, headerTitle, body, footer }: ModalPropTypes) {
     return (
         <>
-
-
             <Transition appear show={openModal} as={Fragment}>
                 <Dialog as="div" className="relative z-10 " onClose={closeModal}>
                     <Transition.Child

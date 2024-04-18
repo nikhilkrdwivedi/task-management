@@ -3,12 +3,8 @@ import toast from 'react-hot-toast';
 import TaskCard from './TaskCard'
 
 import Pagination from '../base/Pagination'
-import MyModal from '../base/Modal';
 import TaskTabs from './TaskTabs';
 import TaskHeader from './TaskHeader';
-import Input from '../base/Input';
-import Textarea from '../base/Textarea';
-import Button from '../base/Button';
 import { createTask, deleteTask, fetchTasks, updateTask, updateTaskStatus } from '../../api/task';
 import Container from '../base/Container';
 import NoDataFound from '../helper/NoDataFound';
@@ -24,7 +20,7 @@ export default function Tasks() {
     const [selectedTaskItem, setSelectedTaskItem] = useState<any>({});
     const [selectedTaskItemErrors, setSelectedTaskItemErrors] = useState<any>({});
     const [tasks, setTasks] = useState<any>({});
-    const [loading, setLoading] = useState(false);
+    const [loading,] = useState(false);
     const BASE_QUERY = {
         // status:'',
         currentPage: 0,
@@ -166,8 +162,12 @@ export default function Tasks() {
                     openModal={showTaskFormModal || false} 
                     saveClick={() => validatedRequest()} 
                     />
-                <TaskHeader manageTaskFormModal={handleTaskFormModalAction} />
-                <TaskTabs handleTabChange={(status: string) => handleQueryChange(status, 'TAB')} />
+                <TaskHeader 
+                manageTaskFormModal={handleTaskFormModalAction} 
+                />
+                <TaskTabs 
+                handleTabChange={(status: string) => handleQueryChange(status, 'TAB')} 
+                />
                 <NoDataFound loading={loading} data={tasks.data} />
                 {!!tasks?.data?.length && (
                     <>
